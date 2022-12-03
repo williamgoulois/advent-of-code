@@ -13,16 +13,71 @@ const DAY = 1;
 // problem url  : https://adventofcode.com/2022/day/1
 
 async function p2022day1_part1(input: string, ...params: any[]) {
-	return "Not implemented";
+	return Math.max(
+		...input.split("\n\n").map(g =>
+			g
+				.split("\n")
+				.map(Number)
+				.reduce((p, c) => p + c, 0)
+		)
+	);
 }
 
 async function p2022day1_part2(input: string, ...params: any[]) {
-	return "Not implemented";
+	return input
+		.split("\n\n")
+		.map(g =>
+			g
+				.split("\n")
+				.map(Number)
+				.reduce((p, c) => p + c, 0)
+		)
+		.sort((a, b) => b - a)
+		.slice(0, 3)
+		.reduce((p, c) => p + c, 0);
 }
 
 async function run() {
-	const part1tests: TestCase[] = [];
-	const part2tests: TestCase[] = [];
+	const part1tests: TestCase[] = [
+		{
+			input: `1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000`,
+			extraArgs: [],
+			expected: `24000`,
+		},
+	];
+	const part2tests: TestCase[] = [
+		{
+			input: `1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000`,
+			extraArgs: [],
+			expected: `45000`,
+		},
+	];
 
 	// Run tests
 	test.beginTests();
