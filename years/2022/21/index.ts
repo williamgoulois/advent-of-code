@@ -45,7 +45,7 @@ async function run() {
 	const part1Solution = String(await p2022day21_part1(input));
 	const part1After = performance.now();
 
-	const part2Before = performance.now()
+	const part2Before = performance.now();
 	const part2Solution = String(await p2022day21_part2(input));
 	const part2After = performance.now();
 
