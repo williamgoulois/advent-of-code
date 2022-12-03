@@ -8,8 +8,8 @@ import { performance } from "perf_hooks";
 const YEAR = 2022;
 const DAY = 23;
 
-// solution path: C:\Users\trgau\dev\t-hugs\advent-of-code\years\2022\23\index.ts
-// data path    : C:\Users\trgau\dev\t-hugs\advent-of-code\years\2022\23\data.txt
+// solution path: /Users/williamgoulois/aoc/years/2022/23/index.ts
+// data path    : /Users/williamgoulois/aoc/years/2022/23/data.txt
 // problem url  : https://adventofcode.com/2022/day/23
 
 async function p2022day23_part1(input: string, ...params: any[]) {

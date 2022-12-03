@@ -8,76 +8,21 @@ import { performance } from "perf_hooks";
 const YEAR = 2022;
 const DAY = 1;
 
-// solution path: C:\Users\trgau\dev\t-hugs\advent-of-code\years\2022\01\index.ts
-// data path    : C:\Users\trgau\dev\t-hugs\advent-of-code\years\2022\01\data.txt
+// solution path: /Users/williamgoulois/aoc/years/2022/01/index.ts
+// data path    : /Users/williamgoulois/aoc/years/2022/01/data.txt
 // problem url  : https://adventofcode.com/2022/day/1
 
 async function p2022day1_part1(input: string, ...params: any[]) {
-	return Math.max(
-		...input.split("\n\n").map(g =>
-			g
-				.split("\n")
-				.map(Number)
-				.reduce((p, c) => p + c, 0)
-		)
-	);
+	return "Not implemented";
 }
 
 async function p2022day1_part2(input: string, ...params: any[]) {
-	return input
-		.split("\n\n")
-		.map(g =>
-			g
-				.split("\n")
-				.map(Number)
-				.reduce((p, c) => p + c, 0)
-		)
-		.sort((a, b) => b - a)
-		.slice(0, 3)
-		.reduce((p, c) => p + c, 0);
+	return "Not implemented";
 }
 
 async function run() {
-	const part1tests: TestCase[] = [
-		{
-			input: `1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000`,
-			extraArgs: [],
-			expected: `24000`,
-		},
-	];
-	const part2tests: TestCase[] = [
-		{
-			input: `1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000`,
-			extraArgs: [],
-			expected: `45000`,
-		},
-	];
+	const part1tests: TestCase[] = [];
+	const part2tests: TestCase[] = [];
 
 	// Run tests
 	test.beginTests();
@@ -100,7 +45,7 @@ async function run() {
 	const part1Solution = String(await p2022day1_part1(input));
 	const part1After = performance.now();
 
-	const part2Before = performance.now();
+	const part2Before = performance.now()
 	const part2Solution = String(await p2022day1_part2(input));
 	const part2After = performance.now();
 
