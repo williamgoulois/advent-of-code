@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _, { parseInt } from "lodash";
 import * as util from "../../../util/util";
 import * as test from "../../../util/test";
 import chalk from "chalk";
@@ -12,17 +12,81 @@ const DAY = 4;
 // data path    : /Users/williamgoulois/aoc/years/2022/04/data.txt
 // problem url  : https://adventofcode.com/2022/day/4
 
+function isContained(inputA: number, inputB: number, a: number, b: number) {
+	return inputA >= a && inputB <= b;
+}
+
+function isContained2(input: number, a: number, b: number) {
+	return input >= a && input <= b;
+}
+
 async function p2022day4_part1(input: string, ...params: any[]) {
-	return "Not implemented";
+	const lines = input.split("\n");
+	let total = 0;
+	for (const line of lines) {
+		const parts = line.split(",");
+		const leftElf = parts[0].split("-");
+		const rightElf = parts[1].split("-");
+		const leftElfStart = parseInt(leftElf[0], 10);
+		const leftElfEnd = parseInt(leftElf[1], 10);
+		const rightElfStart = parseInt(rightElf[0], 10);
+		const rightElfEnd = parseInt(rightElf[1], 10);
+		if (isContained(leftElfStart, leftElfEnd, rightElfStart, rightElfEnd)) {
+			total += 1;
+		} else if (isContained(rightElfStart, rightElfEnd, leftElfStart, leftElfEnd)) {
+			total += 1;
+		}
+	}
+	return total;
 }
 
 async function p2022day4_part2(input: string, ...params: any[]) {
-	return "Not implemented";
+	const lines = input.split("\n");
+	let total = 0;
+	for (const line of lines) {
+		const parts = line.split(",");
+		const leftElf = parts[0].split("-");
+		const rightElf = parts[1].split("-");
+		const leftElfStart = parseInt(leftElf[0], 10);
+		const leftElfEnd = parseInt(leftElf[1], 10);
+		const rightElfStart = parseInt(rightElf[0], 10);
+		const rightElfEnd = parseInt(rightElf[1], 10);
+		if (isContained2(leftElfStart, rightElfStart, rightElfEnd)) {
+			total += 1;
+		} else if (isContained2(leftElfEnd, rightElfStart, rightElfEnd)) {
+			total += 1;
+		} else if (isContained2(rightElfStart, leftElfStart, leftElfEnd)) {
+			total += 1;
+		} else if (isContained2(rightElfEnd, leftElfStart, leftElfEnd)) {
+			total += 1;
+		}
+	}
+	return total;
 }
 
 async function run() {
-	const part1tests: TestCase[] = [];
-	const part2tests: TestCase[] = [];
+	const part1tests: TestCase[] = [
+		{
+			input: `2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8`,
+			expected: `2`,
+		},
+	];
+	const part2tests: TestCase[] = [
+		{
+			input: `2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8`,
+			expected: `4`,
+		},
+	];
 
 	// Run tests
 	test.beginTests();

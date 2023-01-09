@@ -13,16 +13,54 @@ const DAY = 6;
 // problem url  : https://adventofcode.com/2022/day/6
 
 async function p2022day6_part1(input: string, ...params: any[]) {
-	return "Not implemented";
+	for (let i = 0; i < input.length; ) {
+		const end = i + 4 < input.length ? i + 4 : input.length - 1;
+		const group4Letters = input.slice(i, end);
+		const presentLetters = new Set();
+		for (let j = 0; j < group4Letters.length; j++) {
+			const letter = group4Letters[j];
+			presentLetters.add(letter);
+		}
+		if (presentLetters.size === 4) {
+			return end;
+		} else {
+			i++;
+		}
+	}
 }
 
 async function p2022day6_part2(input: string, ...params: any[]) {
-	return "Not implemented";
+	for (let i = 0; i < input.length; ) {
+		const end = i + 14 < input.length ? i + 14 : input.length - 1;
+		const group4Letters = input.slice(i, end);
+		const presentLetters = new Set();
+		for (let j = 0; j < group4Letters.length; j++) {
+			const letter = group4Letters[j];
+			presentLetters.add(letter);
+		}
+		if (presentLetters.size === 14) {
+			return end;
+		} else {
+			i++;
+		}
+	}
 }
 
 async function run() {
-	const part1tests: TestCase[] = [];
-	const part2tests: TestCase[] = [];
+	const part1tests: TestCase[] = [
+		{ input: `mjqjpqmgbljsphdztnvjfqwrcgsmlb`, expected: `7` },
+		{ input: `bvwbjplbgvbhsrlpgdmjqwftvncz`, expected: `5` },
+		{ input: `nppdvjthqldpwncqszvftbrmjlhg`, expected: `6` },
+		{ input: `nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg`, expected: `10` },
+		{ input: `zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw`, expected: `11` },
+	];
+	const part2tests: TestCase[] = [
+		{ input: `mjqjpqmgbljsphdztnvjfqwrcgsmlb`, expected: `19` },
+		{ input: `bvwbjplbgvbhsrlpgdmjqwftvncz`, expected: `23` },
+		{ input: `nppdvjthqldpwncqszvftbrmjlhg`, expected: `23` },
+		{ input: `nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg`, expected: `29` },
+		{ input: `zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw`, expected: `26` },
+	];
 
 	// Run tests
 	test.beginTests();
